@@ -37,13 +37,6 @@ Plugin 'nelstrom/vim-markdown-folding'
 "Docker {{{
 Plugin 'docker/docker', {'rtp': 'contrib/syntax/vim/'}
 "}}}
-"Tmux {{{
-Plugin 'benmills/vimux'
-Plugin 'christoomey/vim-tmux-navigator'
-"}}}
-" C++ {{{
-Plugin 'Valloric/YouCompleteMe'
-"}}}
 "Julia {{{
 Plugin 'JuliaLang/julia-vim'
 "}}}
@@ -59,7 +52,6 @@ filetype plugin indent on
 "}}}
 "Theme settings {{{
 set background=dark
-colorscheme base16-default
 "}}}
 "Number settings {{{
 set number

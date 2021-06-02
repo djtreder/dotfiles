@@ -36,7 +36,10 @@ set_prompt () {
         PS1+="\\[$Red\\]$FancyX "
     fi
     # get git prompt support
-    source /usr/lib/git-core/git-sh-prompt
+    # Linux:
+    # source /usr/lib/git-core/git-sh-prompt
+    # OSX:
+    source /usr/local/etc/bash_completion.d/git-prompt.sh
     GIT_PS1_SHOWDIRTYSTATE=1
     GIT_PS1_SHOWSTASHSTATE=1
     GIT_PS1_SHOWUNTRACKEDFILES=1
@@ -55,23 +58,24 @@ PROMPT_COMMAND='set_prompt'
 [ -f ~/.bash_aliases ] && source ~/.bash_aliases
 
 # source bash-completion
-source /usr/share/bash-completion/bash_completion
+# source /usr/share/bash-completion/bash_completion
 
 #export M2_HOME=/usr/local/apache-maven/apache-maven-3.1.1
 #export M2=$M2_HOME/bin
 #export JAVA_HOME=/usr/lib/jvm/java-8-oracle/jre
 #export PATH="$HOME/bin:$HOME/eclipse:$HOME/.rbenv/bin:$HOME/RubyMine/bin:$HOME/IDEA/bin:$M2:$PATH"
-export PATH="$HOME/.npm-global/bin:$HOME/bin:$HOME/eclipse:$HOME/.rbenv/bin:$HOME/RubyMine/bin:$HOME/IDEA/bin:$PATH"
-if command -v rbenv >/dev/null 2>&1; then
-    eval "$(rbenv init -)"
-fi
+export PATH="$HOME/.npm-global/bin:$HOME/bin:$HOME/eclipse:$HOME/.rbenv/bin:$HOME/RubyMine/bin:$HOME/IDEA/bin:/Users/dtreder/Library/Python/2.7/bin:$PATH"
+#if command -v rbenv >/dev/null 2>&1; then
+    #eval "$(rbenv init -)"
+#fi
 #set -o vi
 
 # look into this alert command
 #alias alert=`notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e 's/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//')"'
 
 # default editor = spacemacs goodness
-export EDITOR="/usr/local/bin/emacs -nw"
+# export EDITOR="/usr/local/bin/emacs -nw"
+export EDITOR="/usr/bin/vim"
 
 # set directory where all repositories will be at
 export REPO_DIR="$HOME/git"
@@ -80,7 +84,7 @@ export REPO_DIR="$HOME/git"
 export GOPATH="$HOME/gocode"
 
 export PATH="$HOME/.captain/bin/:$HOME/.rbenv/bin:/usr/local/go/bin:$GOPATH/bin:$PATH"
-eval "$(rbenv init -)"
+# eval "$(rbenv init -)"
 
 # setup hub alias and completion
 # eval "$(hub alias -s)"

@@ -29,7 +29,7 @@ repoupdate(){
 
 allupdate(){
     originalDir=$(pwd)
-    type rbenv >/dev/null 2>&1 && rbenvupdate
+    #type rbenv >/dev/null 2>&1 && rbenvupdate
     type apt > /dev/null 2>&1 && packageupdate
     [ -d "/usr/local/share/wemux" ] && wemuxupdate
     [ -d "$REPO_DIR" ] && repoupdate
@@ -79,8 +79,13 @@ gamend(){
 }
 # docker {{{1
 rmdock(){
-    docker rm $(sudo docker ps -a -q)
-    docker rmi $(sudo docker images -q)
+    cid=$(docker container ps | grep $1 | head -n1 | cut -f1 -d' ')
+    docker container stop $cid
+    docker container rm $cid
+}
+
+docksh(){
+    docker exec -it $(docker ps | grep $1 | cut -f1 -d' ') /bin/bash
 }
 
 dockbuild() {
@@ -149,7 +154,8 @@ empqa2() {
     EMPIRE_API_URL=https://empire.ascentquality.net emp "$@"
 }
 
-alias ls='ls --color=always --group-directories-first -AohF'
+#alias ls='ls --color=always --group-directories-first -AohF'
+alias ls='ls -AohF'
 alias sm='emacs -nw'
 alias ec='emacsclient'
 alias less='less -R'
