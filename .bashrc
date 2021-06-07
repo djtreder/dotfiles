@@ -13,6 +13,9 @@ shopt -s histverify # fill out history on the line to allow for verification/mod
 HISTSIZE=1000
 HISTFILESIZE=2000
 
+# Evaluate pyenv
+eval "$(pyenv init -)"
+
 # check the window size after each command and, if necessary,
 # update the values of LINES and COLUMNS.
 shopt -s checkwinsize
@@ -64,7 +67,7 @@ PROMPT_COMMAND='set_prompt'
 #export M2=$M2_HOME/bin
 #export JAVA_HOME=/usr/lib/jvm/java-8-oracle/jre
 #export PATH="$HOME/bin:$HOME/eclipse:$HOME/.rbenv/bin:$HOME/RubyMine/bin:$HOME/IDEA/bin:$M2:$PATH"
-export PATH="$HOME/.npm-global/bin:$HOME/bin:$HOME/eclipse:$HOME/.rbenv/bin:$HOME/RubyMine/bin:$HOME/IDEA/bin:/Users/dtreder/Library/Python/2.7/bin:$PATH"
+export PATH="$HOME/.npm-global/bin:$HOME/bin:$HOME/eclipse:$HOME/.rbenv/bin:$HOME/RubyMine/bin:$HOME/IDEA/bin:/usr/local/sbin:/usr/local/opt/mysql-client@5.7/bin:$PATH"
 #if command -v rbenv >/dev/null 2>&1; then
     #eval "$(rbenv init -)"
 #fi
